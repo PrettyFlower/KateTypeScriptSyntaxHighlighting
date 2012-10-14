@@ -13,4 +13,6 @@ copy to kde dir using
 sudo cp typescript.xml $KDEDIR/share/apps/katepart/syntax/typescript.xml
 ```
 
-Restart kate and it should just work.
+Restart kate and TypeScript should appear as an option under Tools -> Highlighting -> Scripts -> TypeScript
+
+Arch users may install this from AUR (kate-typescript-syntax-highlighting)
