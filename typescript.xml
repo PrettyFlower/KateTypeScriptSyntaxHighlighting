@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE language SYSTEM "language.dtd">
+<language name="TypeScript" section="Scripts" extensions="*.ts;"
+        indenter="cstyle" author="PrettyFlower (abigchode@gmail.com)">
+<highlighting>
+    <list name="keywords">
+        <item> if </item>
+        <item> else </item>
+        <item> for </item>
+        <item> in </item>
+        <item> while </item>
+        <item> do </item>
+        <item> continue </item>
+        <item> break </item>
+        <item> with </item>
+        <item> try </item>
+        <item> catch </item>
+        <item> finally </item>
+        <item> switch </item>
+        <item> case </item>
+        <item> new </item>
+        <item> var </item>
+        <item> function </item>
+        <item> return </item>
+        <item> delete </item>
+        <item> true </item>
+        <item> false </item>
+        <item> void </item>
+        <item> throw </item>
+        <item> typeof </item>
+        <item> const </item>
+        <item> default </item>
+        <item> this </item>
+        
+        <item> class </item>
+        <item> export </item>
+        <item> module </item>
+        <item> import </item>
+        <item> static </item>
+        <item> interface </item>
+        <item> constructor </item>
+        <item> public </item>
+        <item> private </item>
+        <item> string </item>
+        <item> number </item>
+        <item> bool </item>
+        <item> any </item>
+    </list>
+    
+    <contexts>
+        <context attribute="Normal Text" lineEndContext="#stay" name="Normal">
+            <DetectSpaces/>
+            <keyword attribute="Keyword" context="#stay" String="keywords" />
+            <DetectChar attribute="String" context="String" char="&quot;"/>
+            <DetectChar attribute="String Char" context="String 1" char="'"/>
+            <StringDetect attribute="Reference" context="Reference" String="///" />
+            <Detect2Chars attribute="Comment" context="Comment" char="/" char1="/"/>
+            <Detect2Chars attribute="Comment" context="Multi/inline Comment" char="/" char1="*" beginRegion="Comment"/>
+            <DetectIdentifier/>
+        </context>
+        
+        <context attribute="String" lineEndContext="#pop" name="String">
+            <DetectIdentifier/>
+            <HlCStringChar attribute="String Char" context="#stay"/>
+            <LineContinue attribute="String" context="#stay"/>
+            <DetectChar attribute="String" context="#pop" char="&quot;"/>
+        </context>
+        
+        <context attribute="String Char" lineEndContext="#pop" name="String 1">
+            <DetectIdentifier/>
+            <HlCStringChar attribute="String Char" context="#stay"/>
+            <LineContinue attribute="String" context="#stay"/>
+            <DetectChar attribute="String Char" context="#pop" char="'"/>
+        </context>
+
+        <context attribute="Comment" lineEndContext="#pop" name="Comment">
+            <DetectSpaces />
+            <IncludeRules context="##Alerts" />
+            <DetectIdentifier />
+        </context>
+        
+        <context attribute="Comment" lineEndContext="#stay" name="Multi/inline Comment">
+            <IncludeRules context="##Alerts" />
+            <Detect2Chars attribute="Comment" context="#pop" char="*" char1="/" endRegion="Comment"/>
+        </context>
+        
+        <context attribute="Reference" lineEndContext="#pop" name="Reference">
+            <DetectChar attribute="ReferenceFile" context="ReferenceFile" char="&quot;"/>
+            <DetectChar attribute="ReferenceFile" context="ReferenceFile 1" char="'"/>
+        </context>
+        
+        <context attribute="ReferenceFile" lineEndContext="#pop" name="ReferenceFile">
+            <DetectIdentifier/>
+            <HlCStringChar attribute="ReferenceFile" context="#stay"/>
+            <LineContinue attribute="ReferenceFile" context="#stay"/>
+            <DetectChar attribute="ReferenceFile" context="#pop" char="&quot;"/>
+        </context>
+        
+        <context attribute="ReferenceFile" lineEndContext="#pop" name="ReferenceFile 1">
+            <DetectIdentifier/>
+            <HlCStringChar attribute="ReferenceFile" context="#stay"/>
+            <LineContinue attribute="ReferenceFile" context="#stay"/>
+            <DetectChar attribute="ReferenceFile" context="#pop" char="'"/>
+        </context>
+    </contexts>
+    <itemDatas>
+        <itemData name="Normal Text" defStyleNum="dsNormal"  spellChecking="false"/>
+        <itemData name="Keyword" defStyleNum="dsNormal" spellChecking="false" color="#00f"/>
+        <itemData name="Char" defStyleNum="dsChar" spellChecking="false"/>
+        <itemData name="String" defStyleNum="dsString" color="#a31515"/>
+        <itemData name="String Char" defStyleNum="dsChar" spellChecking="false" color="#a31515"/>
+        <itemData name="Comment" defStyleNum="dsNormal" italic="true" color="#080"/>
+        <itemData name="Reference" defStyleNum="dsNormal" color="#888"/>
+        <itemData name="ReferenceFile" defStyleNum="dsNormal" color="#2c51cc"/>
+    </itemDatas>
+</highlighting>
+<general>
+    <comments>
+        <comment name="singleLine" start="//" />
+        <comment name="multiLine" start="/*" end="*/" />
+    </comments>
+    <keywords casesensitive="1" />
+</general>
+</language>
