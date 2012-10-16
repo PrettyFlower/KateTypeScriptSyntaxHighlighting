@@ -50,7 +50,7 @@
     <contexts>
         <context attribute="Normal Text" lineEndContext="#stay" name="Normal">
             <DetectSpaces/>
-            <keyword attribute="Keyword" context="#stay" String="keywords" />
+            <keyword attribute="Keyword" context="#stay" String="keywords"/>
             <DetectChar attribute="String" context="String" char="&quot;"/>
             <DetectChar attribute="String Char" context="String 1" char="'"/>
             <StringDetect attribute="Reference" context="Reference" String="///" />
@@ -85,6 +85,8 @@
         </context>
         
         <context attribute="Reference" lineEndContext="#pop" name="Reference">
+            <DetectChar attribute="ReferenceBracket" context="#stay" char="&lt;"/>
+            <DetectChar attribute="ReferenceBracket" context="#stay" char="&gt;"/>
             <DetectChar attribute="ReferenceFile" context="ReferenceFile" char="&quot;"/>
             <DetectChar attribute="ReferenceFile" context="ReferenceFile 1" char="'"/>
         </context>
@@ -104,13 +106,14 @@
         </context>
     </contexts>
     <itemDatas>
-        <itemData name="Normal Text" defStyleNum="dsNormal"  spellChecking="false"/>
-        <itemData name="Keyword" defStyleNum="dsNormal" spellChecking="false" color="#00f"/>
-        <itemData name="Char" defStyleNum="dsChar" spellChecking="false"/>
+        <itemData name="Normal Text" defStyleNum="dsNormal"/>
+        <itemData name="Keyword" defStyleNum="dsNormal" color="#00f"/>
+        <itemData name="Char" defStyleNum="dsChar"/>
         <itemData name="String" defStyleNum="dsString" color="#a31515"/>
-        <itemData name="String Char" defStyleNum="dsChar" spellChecking="false" color="#a31515"/>
+        <itemData name="String Char" defStyleNum="dsString" color="#a31515"/>
         <itemData name="Comment" defStyleNum="dsNormal" italic="true" color="#080"/>
-        <itemData name="Reference" defStyleNum="dsNormal" color="#888"/>
+        <itemData name="Reference" defStyleNum="dsNormal" color="#aeb9ae"/>
+        <itemData name="ReferenceBracket" defStyleNum="dsNormal" color="#708870" bold="true"/>
         <itemData name="ReferenceFile" defStyleNum="dsNormal" color="#2c51cc"/>
     </itemDatas>
 </highlighting>
@@ -119,6 +122,6 @@
         <comment name="singleLine" start="//" />
         <comment name="multiLine" start="/*" end="*/" />
     </comments>
-    <keywords casesensitive="1" />
+    <keywords casesensitive="1" weakDeliminator="."/>
 </general>
 </language>
