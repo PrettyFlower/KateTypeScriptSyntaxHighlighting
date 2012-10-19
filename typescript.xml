@@ -34,6 +34,7 @@
         
         <item> class </item>
         <item> export </item>
+        <item> declare </item>
         <item> module </item>
         <item> import </item>
         <item> static </item>
