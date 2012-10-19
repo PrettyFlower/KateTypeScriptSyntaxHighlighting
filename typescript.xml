@@ -39,6 +39,7 @@
         <item> import </item>
         <item> static </item>
         <item> interface </item>
+        <item> implements </item>
         <item> constructor </item>
         <item> public </item>
         <item> private </item>
