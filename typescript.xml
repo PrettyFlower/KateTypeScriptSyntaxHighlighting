@@ -31,6 +31,8 @@
         <item> const </item>
         <item> default </item>
         <item> this </item>
+        <item> null </item>
+        <item> undefined </item>
         
         <item> class </item>
         <item> export </item>
