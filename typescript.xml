@@ -45,6 +45,7 @@
         <item> number </item>
         <item> bool </item>
         <item> any </item>
+        <item> extends </item>
     </list>
     
     <contexts>
