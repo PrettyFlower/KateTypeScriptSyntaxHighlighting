@@ -47,7 +47,7 @@
         <item> private </item>
         <item> string </item>
         <item> number </item>
-        <item> bool </item>
+        <item> boolean </item>
         <item> any </item>
         <item> extends </item>
     </list>
